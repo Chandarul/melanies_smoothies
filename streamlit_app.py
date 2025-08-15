@@ -22,6 +22,11 @@ st.write('The name on your Smoothie will be:', name_on_order)
 my_dataframe = session.table("smoothies.public.fruit_options").select (col ('FRUIT_NAME'))
 # st.dataframe(data=my_dataframe, use_container_width=True)
 
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
+
+
 ingredients_list = st.multiselect( 'Choose up to 5 ingredients:', my_dataframe, max_selections = 5)
 if ingredients_list:
 #    st.write(ingredients_list)
